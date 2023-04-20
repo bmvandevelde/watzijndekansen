@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Uitdaging</title>
+	<style>
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+		button {
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Uitdaging</h1>
+	<form>
+		<label>
+			Uitdager:
+			<input type="text" id="uitdager" required>
+		</label>
+		<label>
+			Slachtoffer:
+			<input type="text" id="slachtoffer" required>
+		</label>
+		<label>
+			Uitdaging:
+			<input type="text" id="uitdaging" required>
+		</label>
+		<label>
+			Slachtoffer, kies een getal tussen 1 en 100:
+			<input type="number" id="number" min="1" max="100" required>
+		</label>
+		<label>
+			Uitdager, vul hier het getal in:
+			<input type="number" id="guess" min="1" max="100" required>
+		</label>
+		<button type="button" onclick="submitNumber()">Indienen</button>
+	</form>
+
+	<script>
+		var uitdager = document.getElementById("uitdager");
+		var slachtoffer = document.getElementById("slachtoffer");
+		var uitdaging = document.getElementById("uitdaging");
+		var generatedNumber;
+
+		function submitNumber() {
+			var enteredNumber = document.getElementById("number").value;
+			var guess = document.getElementById("guess").value;
+			generatedNumber = Math.floor(Math.random() * enteredNumber) + 1;
+
+			if (guess == generatedNumber) {
+				alert(slachtoffer.value + ", je hebt de uitdaging gewonnen! Je hoeft de taak '" + uitdaging.value + "' niet uit te voeren.");
+			} else {
+				alert(slachtoffer.value + ", helaas, je hebt verloren. Je moet nu de taak '" + uitdaging.value + "' uitvoeren.");
+			}
+
+			uitdager.value = "";
+			slachtoffer.value = "";
+			uitdaging.value = "";
+			document.getElementById("number").value = "";
+			document.getElementById("guess").value = "";
+		}
+	</script>
+</body>
+</html>

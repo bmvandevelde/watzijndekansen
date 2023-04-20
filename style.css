@@ -17,3 +17,38 @@ h1 {
   color: limegreen;
   text-shadow: 2px 2px black;
 }
+
+/* Voeg deze regel toe in de CSS voor de tekst */
+.typewriter {
+  overflow: hidden; /* Zorg dat de tekst verborgen is */
+  font-family: 'VT323', monospace; /* Kies het gewenste lettertype */
+  white-space: nowrap; /* Zorg dat de tekst op één regel blijft */
+  font-size: 2em; /* Maak het lettertype lekker groot */
+  color: #FF00FF; /* Kies een hysterische kleur */
+  border-right: .15em solid #FF00FF; /* Voeg een knipperende cursor toe */
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+/* Voeg deze animatie toe */
+@keyframes typing {
+  from {
+    width: 0; /* Zorg dat de tekst vanaf 0 breedte begint */
+  }
+  to {
+    width: 100%; /* Laat de tekst volledig in beeld komen */
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent; /* Maak de cursor tijdelijk onzichtbaar */
+  }
+  50% {
+    border-color: #FF00FF; /* Laat de cursor oplichten */
+  }
+}
+
+/* Voeg deze media query toe om de CSS aan te passen voor mobiele apparaten */
+@media only screen and (max-width: 600px) {
+  /* Pas hier de CSS aan voor mobiele apparaten */
+}

@@ -1,54 +1,64 @@
-body {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  font-size: 48px;
-  color: hotpink;
-  background: linear-gradient(to right, #ff00ff, #00ffff);
-  animation: bg-color 5s ease-in-out infinite alternate;
-  text-align: center;
+/* Algemene stijlen */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes bg-color {
-  from {background-color: #ff00ff;}
-  to {background-color: #00ffff;}
+body {
+  background-color: #ff00ff;
+  font-family: 'Courier New', Courier, monospace;
+  color: #ffffff;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 1.5;
+  animation: typing 5s steps(60) forwards;
 }
 
 h1 {
-  font-size: 72px;
-  color: limegreen;
-  text-shadow: 2px 2px black;
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }
 
-/* Voeg deze regel toe in de CSS voor de tekst */
-.typewriter {
-  overflow: hidden; /* Zorg dat de tekst verborgen is */
-  font-family: 'VT323', monospace; /* Kies het gewenste lettertype */
-  white-space: nowrap; /* Zorg dat de tekst op één regel blijft */
-  font-size: 2em; /* Maak het lettertype lekker groot */
-  color: #FF00FF; /* Kies een hysterische kleur */
-  border-right: .15em solid #FF00FF; /* Voeg een knipperende cursor toe */
-  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-/* Voeg deze animatie toe */
+.challenge {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #00ffff;
+  font-size: 2.5rem;
+  line-height: 1.5;
+  animation: typing 5s steps(60) forwards;
+}
+
+/* Animatie voor typemachine-effect */
 @keyframes typing {
   from {
-    width: 0; /* Zorg dat de tekst vanaf 0 breedte begint */
+    width: 0;
   }
   to {
-    width: 100%; /* Laat de tekst volledig in beeld komen */
+    width: 100%;
   }
 }
 
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent; /* Maak de cursor tijdelijk onzichtbaar */
-  }
-  50% {
-    border-color: #FF00FF; /* Laat de cursor oplichten */
-  }
-}
-
-/* Voeg deze media query toe om de CSS aan te passen voor mobiele apparaten */
+/* Media Query voor mobielvriendelijkheid */
 @media only screen and (max-width: 600px) {
-  /* Pas hier de CSS aan voor mobiele apparaten */
+  body {
+    font-size: 1.5rem;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .challenge {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+  }
 }

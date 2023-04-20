@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wat zijn de kansen? - Stap 2</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Wat zijn de kansen? - Stap 2</h1>
+    <p>Hallo ${victimName},</p>
+    <p>De challenge die ${challengerName} heeft gekozen is: ${challenge}.</p>
+    <p>Wat denk jij dat de kansen zijn dat ${challengerName} deze challenge kan volbrengen? Vul een getal in tussen 1 en 100:</p>
+    <form>
+      <input type="number" id="kansen" name="kansen" min="1" max="100">
+      <input type="submit" value="Volgende stap">
+    </form>
+  </div>
+  <script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var challengerName = urlParams.get('challenger');
+    var victimName = urlParams.get('victim');
+    var challenge = urlParams.get('challenge');
+
+    document.getElementById("kansen").addEventListener("input", function() {
+      if (this.value > 100) {
+        this.value = 100;
+      } else if (this.value < 1) {
+        this.value = 1;
+      }
+    });
+
+    document.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      var kansen = document.getElementById("kansen").value;
+      window.location.href = "actie.html?challenger=" + encodeURIComponent(challengerName) + "&victim=" + encodeURIComponent(victimName) + "&challenge=" + encodeURIComponent(challenge) + "&kansen=" + encodeURIComponent(kansen);
+    });
+  </script>
+</body>
+</html>

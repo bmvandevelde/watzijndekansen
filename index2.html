@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wat zijn de kansen?</title>
+</head>
+<body>
+	<h1 style="color:blue;">Wat zijn de kansen?</h1>
+	<p>Vul hieronder de namen van de uitdager en het slachtoffer in, kies een challenge en speel het spel "Wat zijn de kansen?"</p>
+
+	<label for="uitdager">Naam uitdager:</label>
+	<input type="text" id="uitdager" name="uitdager"><br><br>
+
+	<label for="slachtoffer">Naam slachtoffer:</label>
+	<input type="text" id="slachtoffer" name="slachtoffer"><br><br>
+
+	<label for="challenge">Challenge:</label>
+	<input type="text" id="challenge" name="challenge"><br><br>
+
+	<button onclick="startGame()">Start het spel!</button>
+
+	<script>
+		function startGame() {
+			var uitdager = document.getElementById("uitdager").value;
+			var slachtoffer = document.getElementById("slachtoffer").value;
+			var challenge = document.getElementById("challenge").value;
+			var maxNumber = 100;
+
+			if (uitdager === "" || slachtoffer === "" || challenge === "") {
+				alert("Vul alle velden in!");
+			} else {
+				var X = prompt(slachtoffer + ", wat zijn de kansen dat je " + challenge + " doet? Kies een getal tussen 1 en 100.");
+				alert("Geef nu de telefoon aan " + uitdager);
+
+				var Y = prompt(uitdager + ", kies nu je getal tussen 1 en " + X);
+				alert("Geef nu de telefoon terug aan " + slachtoffer);
+
+				var Z = prompt(slachtoffer + ", nu kies jij het getal tussen 1 en " + X + ". Kies zorgvuldig! Als je het verkeerde getal kiest, moet je " + challenge + " doen.");
+
+				if (Y == Z) {
+					alert("Goed geraden! " + slachtoffer + " hoeft " + challenge + " niet te doen.");
+				} else {
+					alert("Helaas, " + slachtoffer + " moet " + challenge + " doen.");
+				}
+			}
+		}
+	</script>
+</body>
+</html>

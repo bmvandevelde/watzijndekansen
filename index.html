@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wat zijn de kansen?</title>
+</head>
+<body>
+	<h1>Wat zijn de kansen?</h1>
+	<p>Druk op de knop om een unieke code te genereren:</p>
+	<button onclick="generateCode()">Genereer unieke code</button>
+	<p>Vul hieronder de code in die je hebt gekregen:</p>
+	<input type="text" id="code">
+	<p>Vul hieronder een getal in tussen 1 en 100:</p>
+	<input type="text" id="number">
+	<button onclick="submitNumber()">Indienen</button>
+
+	<script>
+		var generatedCode;
+
+		function generateCode() {
+			generatedCode = Math.floor(Math.random() * 1000000);
+			alert("De code is: " + generatedCode);
+		}
+
+		function submitNumber() {
+			var enteredCode = document.getElementById("code").value;
+			var enteredNumber = document.getElementById("number").value;
+
+			if (enteredCode == generatedCode) {
+				var randomNumber = Math.floor(Math.random() * enteredNumber) + 1;
+
+				var guess = prompt("Voer een getal in tussen 1 en " + enteredNumber + ":");
+
+				if (guess == randomNumber) {
+					alert("Je hebt het gehaald! Het getal was inderdaad " + randomNumber + ".");
+				} else {
+					alert("Helaas, het getal was " + randomNumber + ". Probeer het nog eens.");
+				}
+			} else {
+				alert("De code is onjuist. Probeer het opnieuw.");
+			}
+		}
+	</script>
+</body>
+</html>

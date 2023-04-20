@@ -18,33 +18,15 @@
 	<label for="challenge">Challenge:</label>
 	<input type="text" id="challenge" name="challenge"><br><br>
 
-	<button onclick="location.href='game.html'">Start het spel!</button>
+	<button onclick="startGame()">Start het spel!</button>
 
 	<script>
 		function startGame() {
-			var uitdager = document.getElementById("uitdager").value;
-			var slachtoffer = document.getElementById("slachtoffer").value;
-			var challenge = document.getElementById("challenge").value;
-			var maxNumber = 100;
+  var challenger = document.getElementById("challenger").value;
+  var victim = document.getElementById("victim").value;
+  window.location.href = "game.html?challenger=" + encodeURIComponent(challenger) + "&victim=" + encodeURIComponent(victim);
+}
 
-			if (uitdager === "" || slachtoffer === "" || challenge === "") {
-				alert("Vul alle velden in!");
-			} else {
-				var X = prompt(slachtoffer + ", wat zijn de kansen dat je " + challenge + " doet? Kies een getal tussen 1 en 100.");
-				alert("Geef nu de telefoon aan " + uitdager);
-
-				var Y = prompt(uitdager + ", kies nu je getal tussen 1 en " + X);
-				alert("Geef nu de telefoon terug aan " + slachtoffer);
-
-				var Z = prompt(slachtoffer + ", nu kies jij het getal tussen 1 en " + X + ". Kies zorgvuldig! Als je het verkeerde getal kiest, moet je " + challenge + " doen.");
-
-				if (Y == Z) {
-					alert("Helaas! " + slachtoffer + " moet " + challenge + " nu doen!");
-				} else {
-					alert("Gelukkig, " + slachtoffer + " hoeft " + challenge + " niet te doen.");
-				}
-			}
-		}
 	</script>
 </body>
 </html>

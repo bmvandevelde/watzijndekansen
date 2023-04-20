@@ -11,10 +11,12 @@
     <h1>Wat zijn de kansen?</h1>
     <script>
       var urlParams = new URLSearchParams(window.location.search);
-      var challengerName = urlParams.get('challenger');
-      var victimName = urlParams.get('victim');
+var challengerName = urlParams.get('challenger');
+var victimName = urlParams.get('victim');
+var challenge = urlParams.get('challenge');
+
       document.write("<p>Hallo " + victimName + ",</p>");
-      document.write("<p>" + challengerName + " heeft je uitgedaagd om het spel &quot;Wat zijn de kansen?&quot; te spelen. Ben je klaar om te beginnen?</p>");
+      document.write("<p>" + challengerName + " heeft je uitgedaagd om het spel &quot;Wat zijn de kansen?&quot; te spelen. Ben je klaar om te beginnen? Jouw challenge is: " + challenge + ".</p>");
       document.querySelector('h1').textContent = `Wat zijn de kansen? (${challengerName} vs. ${victimName})`;
     </script>
     <form>

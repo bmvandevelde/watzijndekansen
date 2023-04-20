@@ -8,18 +8,18 @@
 </head>
 <body>
   <div class="container">
-    <h1>Wat zijn de kansen??</h1>
-    <p>Hallo ${victimName},</p>
-    <p>${challengerName} heeft je uitgedaagd om het spel "Wat zijn de kansen?" te spelen. Ben je klaar om te beginnen?</p>
+    <h1>Wat zijn de kansen? - Stap 1</h1>
+    <script>
+      var urlParams = new URLSearchParams(window.location.search);
+      var challengerName = urlParams.get('challenger');
+      var victimName = urlParams.get('victim');
+      document.write("<p>Hallo " + victimName + ",</p>");
+      document.write("<p>" + challengerName + " heeft je uitgedaagd om het spel &quot;Wat zijn de kansen?&quot; te spelen. Ben je klaar om te beginnen?</p>");
+      document.querySelector('h1').textContent = `Wat zijn de kansen? - Stap 1 (${challengerName} vs. ${victimName})`;
+    </script>
     <form>
       <input type="submit" value="Ja, ik ben er klaar voor!">
     </form>
   </div>
-  <script>
-    var urlParams = new URLSearchParams(window.location.search);
-    var challengerName = urlParams.get('challenger');
-    var victimName = urlParams.get('victim');
-    document.querySelector('h1').textContent = `Wat zijn de kansen? - Stap 1 (${challengerName} vs. ${victimName})`;
-  </script>
 </body>
 </html>

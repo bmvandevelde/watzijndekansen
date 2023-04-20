@@ -1,44 +1,18 @@
-/* Algemene stijlen */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* Kleurovergang */
 body {
-  background-color: #ff00ff;
+  background-color: #f043b4; /* fallback voor oude browsers */
+  background-image: linear-gradient(to bottom, #f043b4, #ff6e61);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #f8fffc;
   font-family: 'Courier New', Courier, monospace;
-  color: #ffffff;
-  text-align: center;
-  font-size: 2rem;
-  line-height: 1.5;
-  animation: typing 5s steps(60) forwards;
-}
-
-h1 {
   font-size: 3rem;
-  margin-bottom: 2rem;
+  text-align: center;
+  animation: type 5s steps(30), color 5s ease-in-out infinite alternate;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.challenge {
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: #00ffff;
-  font-size: 2.5rem;
-  line-height: 1.5;
-  animation: typing 5s steps(60) forwards;
-}
-
-/* Animatie voor typemachine-effect */
-@keyframes typing {
+/* Animatie om tekst typend in beeld te brengen */
+@keyframes type {
   from {
     width: 0;
   }
@@ -47,18 +21,22 @@ h1 {
   }
 }
 
-/* Media Query voor mobielvriendelijkheid */
-@media only screen and (max-width: 600px) {
+/* Hysterische kleur van de letters */
+@keyframes color {
+  0% {
+    color: #f8fffc;
+  }
+  50% {
+    color: #f043b4;
+  }
+  100% {
+    color: #ff6e61;
+  }
+}
+
+/* Media query voor mobielvriendelijke weergave */
+@media (max-width: 768px) {
   body {
-    font-size: 1.5rem;
-  }
-  h1 {
     font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  .challenge {
-    margin-top: 1rem;
-    padding: 0.5rem;
-    font-size: 1.5rem;
   }
 }

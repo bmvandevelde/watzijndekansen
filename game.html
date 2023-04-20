@@ -3,21 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wat zijn de kansen? - Stap 1</title>
+  <title>Wat zijn de kansen?</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
   <div class="container">
     <h1>Wat zijn de kansen? - Stap 1</h1>
-    <p>Hallo [naam van slachtoffer],</p>
-    <p>[naam van uitdager] heeft je uitgedaagd om het spel "Wat zijn de kansen?" te spelen. Ben je klaar om te beginnen?</p>
+    <p>Hallo ${victimName},</p>
+    <p>${challengerName} heeft je uitgedaagd om het spel "Wat zijn de kansen?" te spelen. Ben je klaar om te beginnen?</p>
     <form>
       <input type="submit" value="Ja, ik ben er klaar voor!">
     </form>
   </div>
-  <style>
+  <script>
     var urlParams = new URLSearchParams(window.location.search);
-var challengerName = urlParams.get('challenger');
-var victimName = urlParams.get('victim');
+    var challengerName = urlParams.get('challenger');
+    var victimName = urlParams.get('victim');
+  </script>
 </body>
 </html>

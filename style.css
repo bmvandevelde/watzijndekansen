@@ -24,13 +24,13 @@ body {
 /* Hysterische kleur van de letters */
 @keyframes color {
   0% {
-    color: #f8fffc;
+    color: #00FA9a;
   }
   50% {
-    color: #f043b4;
+    color: #fafad2;
   }
   100% {
-    color: #ff6e61;
+    color: #f5f5f5;
   }
 }
 

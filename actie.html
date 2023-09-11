@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Wat zijn de kansen? - Stap 3</h1>
+        <h1>Wat zijn de kansen? - Stap 33</h1>
         <p>Hallo <span id="uitdager"></span>,</p>
         <p>Spannend! <span id="slachtoffer"></span> geeft het een kans van 1 op <span id="kansen"></span> dat ze de challenge "<span id="challenge"></span>" gaat doen!</p>
             <br>
@@ -26,6 +26,7 @@
         var kansen = urlParams.get('kansen');
 
         document.getElementById("uitdager").textContent = uitdager;
+        document.getElementById("slachtoffer").textContent = slachtoffer; // Voeg deze lijn toe om slachtoffer weer te geven.
         document.getElementById("kansen").textContent = kansen;
 
         document.getElementById("actieForm").addEventListener("submit", function(e) {
@@ -33,7 +34,7 @@
             var actieGetal = document.getElementById("actieGetal").value;
             // Hier kun je de logica toevoegen om te controleren of de actie gelukt is.
             // Bijvoorbeeld: vergelijken met het getal van het slachtoffer en resultaat tonen.
-            if (actieGetal == slachtofferGetal) {
+            if (actieGetal == slachtoffer) { // Gebruik kansen in plaats van slachtofferGetal.
                 // Actie is gelukt
                 window.location.href = "succes.html?uitdager=" + encodeURIComponent(uitdager) + "&slachtoffer=" + encodeURIComponent(slachtoffer) + "&challenge=" + encodeURIComponent(challenge);
             } else {

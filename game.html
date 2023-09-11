@@ -8,11 +8,28 @@
 </head>
 <body>
     <div class="container">
-        <h1>Wat zijn de kansen? - Stap 1</h1>
-        <p>Hallo ${slachtoffer},</p>
-        <p>Je bent uitgedaagd door ${uitdager} om het spel "Wat zijn de kansen?" te spelen. De challenge is: ${challenge}.</p>
+        <h1>Wat zijn de kansenn? - Stap 1</h1>
+        <p>Hallo <span id="slachtoffer"></span>,</p>
+        <p>Je bent uitgedaagd door <span id="uitdager"></span> om het spel "Wat zijn de kansen?" te spelen. De challenge is: <span id="challenge"></span>.</p>
         <p>Klik op de onderstaande link om door te gaan:</p>
-        <a href="kansen.html?uitdager=${uitdager}&slachtoffer=${slachtoffer}&challenge=${challenge}">Ga naar stap 2</a>
+        <a href="kansen.html" id="kansenLink">Ga naar stap 2</a>
     </div>
+
+    <script>
+        // JavaScript om waarden in te voegen
+        document.getElementById("slachtoffer").textContent = decodeURIComponent(getParameterByName("slachtoffer"));
+        document.getElementById("uitdager").textContent = decodeURIComponent(getParameterByName("uitdager"));
+        document.getElementById("challenge").textContent = decodeURIComponent(getParameterByName("challenge"));
+        
+        // Functie om URL-parameters te verkrijgen
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return "";
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+    </script>
 </body>
 </html>

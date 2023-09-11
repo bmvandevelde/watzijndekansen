@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wat zijn de kansen? - Stap 2</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wat zijn de kansen? - Stap 1</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Wat zijn de kansen? - Stap 2</h1>
-    <p>Hallo ${victimName},</p>
-    <p>De challenge die ${challengerName} heeft gekozen is: ${challenge}.</p>
-    <p>Wat denk jij dat de kansen zijn dat ${challengerName} deze challenge kan volbrengen? Vul een getal in tussen 1 en 100:</p>
-    <form>
-      <input type="number" id="kansen" name="kansen" min="1" max="100">
-      <input type="submit" value="Volgende stap">
-    </form>
-  </div>
-  <script>
-    var urlParams = new URLSearchParams(window.location.search);
-    var challengerName = urlParams.get('challenger');
-    var victimName = urlParams.get('victim');
-    var challenge = urlParams.get('challenge');
+    <div class="container">
+        <h1>Wat zijn de kansen? - Stap 1</h1>
+        <p>Hallo <span id="slachtoffer"></span>,</p>
+        <p>Je bent uitgedaagd door <span id="uitdager"></span> om het spel "Wat zijn de kansen?" te spelen. De challenge is: <span id="challenge"></span>.</p>
+        <p>Klik op de onderstaande link om door te gaan:</p>
+        <a href="kansen.html" id="kansenLink">Ga naar stap 2</a>
+    </div>
 
-    document.getElementById("kansen").addEventListener("input", function() {
-      if (this.value > 100) {
-        this.value = 100;
-      } else if (this.value < 1) {
-        this.value = 1;
-      }
-    });
-
-    document.querySelector("form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      var kansen = document.getElementById("kansen").value;
-      window.location.href = "actie.html?challenger=" + encodeURIComponent(challengerName) + "&victim=" + encodeURIComponent(victimName) + "&challenge=" + encodeURIComponent(challenge) + "&kansen=" + encodeURIComponent(kansen);
-    });
-  </script>
+    <script>
+        // JavaScript om waarden in te voegen
+        document.getElementById("slachtoffer").textContent = decodeURIComponent(getParameterByName("slachtoffer"));
+        document.getElementById("uitdager").textContent = decodeURIComponent(getParameterByName("uitdager"));
+        document.getElementById("challenge").textContent = decodeURIComponent(getParameterByName("challenge"));
+        
+        // Functie om URL-parameters te verkrijgen
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return "";
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+    </script>
 </body>
 </html>

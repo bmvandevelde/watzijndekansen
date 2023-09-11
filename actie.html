@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wat zijn de kansen? - Stap 3</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Wat zijn de kansen? - Stap 3</h1>
+        <p>Hallo <span id="uitdager"></span>,</p>
+        <p>Jij bent aan zet! Kies nu een getal tussen 1 en <span id="kansen"></span>.</p>
+        <form id="actieForm">
+            <input type="number" id="actieGetal" name="actieGetal" min="1" max="100">
+            <input type="submit" value="Volgende stap">
+        </form>
+    </div>
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        var uitdager = urlParams.get('uitdager');
+        var slachtoffer = urlParams.get('slachtoffer');
+        var challenge = urlParams.get('challenge');
+        var kansen = urlParams.get('kansen');
+
+        document.getElementById("uitdager").textContent = uitdager;
+        document.getElementById("kansen").textContent = kansen;
+
+        document.getElementById("actieForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            var actieGetal = document.getElementById("actieGetal").value;
+            // Hier kun je de logica toevoegen om te controleren of de actie gelukt is.
+            // Bijvoorbeeld: vergelijken met het getal van het slachtoffer en resultaat tonen.
+            if (actieGetal == slachtofferGetal) {
+                // Actie is gelukt
+                window.location.href = "succes.html?uitdager=" + encodeURIComponent(uitdager) + "&slachtoffer=" + encodeURIComponent(slachtoffer) + "&challenge=" + encodeURIComponent(challenge);
+            } else {
+                // Actie is mislukt
+                window.location.href = "mislukt.html?uitdager=" + encodeURIComponent(uitdager) + "&slachtoffer=" + encodeURIComponent(slachtoffer) + "&challenge=" + encodeURIComponent(challenge);
+            }
+        });
+    </script>
+</body>
+</html>
